@@ -22,14 +22,18 @@ function Set-PSNUrl {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
-        [string] $Url
+        [string] $Url,
+
+        [switch] $Temporary
     )
     
     end {
         Set-PSFConfig -FullName "psnotification.url" -Value $Url
-        Get-PSFConfig -FullName "psnotification.url" | Register-PSFConfig
 
-        Write-PSFMessage -Level Verbose -Message "The URL has been configured and registered."
-        $Script:Url = (Get-PSNUrl).Url
+        if (-not $Temporary) {
+            Get-PSFConfig -FullName "psnotification.url" | Register-PSFConfig
+    
+            Write-PSFMessage -Level Verbose -Message "The URL has been configured and registered."
+        }
     }
 }

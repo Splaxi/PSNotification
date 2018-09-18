@@ -52,7 +52,7 @@ Author: Mötz Jensen (@Splaxi)
 function Invoke-PSNMessage {
     [CmdletBinding(DefaultParameterSetName = 'Specific')]
     param (
-        [string] $Url = $Script:Url,
+        [string] $Url = (Get-PSNUrl).Url,
 
         [Parameter(Mandatory = $True, ParameterSetName = 'Specific')]
         [Alias('Email')]
@@ -70,13 +70,23 @@ function Invoke-PSNMessage {
 
         [switch] $AsJob,
 
-        [string] $JobName
+        [string] $JobName,
+
+        [switch] $EnableException
+
     )
 
     begin {
+        if(-not $Url) {
+            Write-PSFMessage -Level Warning -Message "It seems that you didn't pass a URL and the module doesn't have a configured one to use."
+            Stop-PSFFunction -Message "Stopping because of missing URL" -EnableException $EnableException
+            return
+        }
+
     }
     
     process {
+        if(Test-PSFFunctionInterrupt) {return}
 
         if ($PSCmdlet.ParameterSetName -eq "Json") {
             Write-PSFMessage -Level Verbose -Message "The execution is a Json payload passed directly."

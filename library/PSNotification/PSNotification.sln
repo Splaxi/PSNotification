@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{0A68B788-88EF-4C65-9A8F-CB431C2BCFEF}") = "PSNotification", "PSNotification\PSNotification.csproj", "{0C4AF4AE-DEC2-461F-B97A-6E4DFB15BDA8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C4AF4AE-DEC2-461F-B97A-6E4DFB15BDA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C4AF4AE-DEC2-461F-B97A-6E4DFB15BDA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C4AF4AE-DEC2-461F-B97A-6E4DFB15BDA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C4AF4AE-DEC2-461F-B97A-6E4DFB15BDA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC8E6BE2-8295-478D-8D79-B8553637A0DF}
+	EndGlobalSection
+EndGlobal

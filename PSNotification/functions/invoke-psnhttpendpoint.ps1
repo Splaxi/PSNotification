@@ -32,19 +32,28 @@ Author: Mötz Jensen (@Splaxi)
 function Invoke-PSNHttpEndpoint {
     [CmdletBinding()]
     param (
-        [string] $Url = $Script:Url,
+        [string] $Url = (Get-PSNUrl).Url,
 
         [Parameter(Mandatory = $True)]
         [string] $Payload,
 
         [ValidateSet('Json')]
-        [string] $Type = "Json"
+        [string] $Type = "Json",
+
+        [switch] $EnableException
     )
     
     begin {
+        if (-not $Url) {
+            Write-PSFMessage -Level Warning -Message "It seems that you didn't pass a URL and the module doesn't have a configured one to use."
+            Stop-PSFFunction -Message "Stopping because of missing URL" -EnableException $EnableException
+            return
+        }
     }
     
-    process {        
+    process {    
+        if (Test-PSFFunctionInterrupt) {return}
+        
         Write-PSFMessage -Level Verbose -Message "Prepping the details for executing the HTTP request."
 
         [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
