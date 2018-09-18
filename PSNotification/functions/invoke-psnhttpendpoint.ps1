@@ -55,7 +55,7 @@ function Invoke-PSNHttpEndpoint {
         }
     }
     
-    process {    
+    process {
         if (Test-PSFFunctionInterrupt) {return}
         
         Write-PSFMessage -Level Verbose -Message "Prepping the details for executing the HTTP request."
@@ -76,7 +76,7 @@ function Invoke-PSNHttpEndpoint {
     
             $requestStream = $response.GetResponseStream()
             $readStream = New-Object System.IO.StreamReader $requestStream
-            $data = $readStream.ReadToEnd()    
+            $data = $readStream.ReadToEnd()
         }
         catch {
             Write-PSFMessage -Level Verbose -Message "Something went wrong while contacting the http endpoint." -ErrorRecord $_

@@ -3,7 +3,7 @@
 Send a notification message
 
 .DESCRIPTION
-Send a message styled notification 
+Send a message styled notification
 
 .PARAMETER Url
 The URL endpoint that is capable of handling your request
@@ -110,13 +110,13 @@ function Invoke-PSNMessage {
         if($AsJob.IsPresent) {
             $Arguments  = @{Url = $Url; Payload = $RequestData}
             Start-RSJob -Name $JobName -ScriptBlock {
-                param($Parameters) 
-                Import-Module PSNotification -Force -PassThru 
+                param($Parameters)
+                Import-Module PSNotification -Force -PassThru
                 Invoke-PSNHttpEndpoint @Parameters
-             } -ArgumentList $Arguments  
+             } -ArgumentList $Arguments
         }
         else {
-            Invoke-PSNHttpEndpoint -Url $Url -Payload $RequestData 
+            Invoke-PSNHttpEndpoint -Url $Url -Payload $RequestData
         }
     }
     
