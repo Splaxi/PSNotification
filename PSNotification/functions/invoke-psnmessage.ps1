@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Send a notification message
 
@@ -19,6 +19,16 @@ The body/message of the notification that you want to send
 
 .PARAMETER Json
 The raw Json object that you want to pass
+
+.PARAMETER AsJob
+Switch to instruct the cmdlet to start a bacground job and make sure the execution isn't blocked while contacting the HTTP endpoint
+
+.PARAMETER JobName
+Name for the background job that will be started
+
+.PARAMETER EnableException
+This parameters disables user-friendly warnings and enables the throwing of exceptions.
+This is less user friendly, but allows catching exceptions in calling scripts.
 
 .EXAMPLE
 Invoke-PSNMessage -ReceiverEmail "admin@domain.com" -Subject "Testing from the new module" -Message "This should arrive at your door steps" -Url "https://prod-35.westeurope.logic.azure.com:443/workflows/14adfasdrae23354432636dsfasfdsaf/"
@@ -70,7 +80,7 @@ function Invoke-PSNMessage {
 
         [switch] $AsJob,
 
-        [string] $JobName,
+        [string] $JobName = "HttpEndpointInvocation",
 
         [switch] $EnableException
 
@@ -99,7 +109,7 @@ function Invoke-PSNMessage {
         
         if($AsJob.IsPresent) {
             $Arguments  = @{Url = $Url; Payload = $RequestData}
-            Start-RSJob -ScriptBlock {
+            Start-RSJob -Name $JobName -ScriptBlock {
                 param($Parameters) 
                 Import-Module PSNotification -Force -PassThru 
                 Invoke-PSNHttpEndpoint @Parameters

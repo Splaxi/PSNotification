@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Invoke a HTTP Endpoint
 
@@ -15,6 +15,10 @@ The raw (string) payload that you want to pass along to the HTTP Endpoint
 
 .PARAMETER Type
 Type parameter to instruct the HTTP Endpoint what kind of data that will be part of the request
+
+.PARAMETER EnableException
+This parameters disables user-friendly warnings and enables the throwing of exceptions.
+This is less user friendly, but allows catching exceptions in calling scripts.
 
 .EXAMPLE
 $hashTable = @{email = "admin@domain.com"; subject = "More testing"; message = "I hope this finds you well"}

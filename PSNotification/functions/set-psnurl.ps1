@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
 Set the URL for the module
 
@@ -7,6 +7,9 @@ Register the default URL that the module should be using
 
 .PARAMETER Url
 URL of the HTTP Endpoint that you want the module to invoke
+
+.PARAMETER Temporary
+Switch to instruct the cmdlet NOT to store the URL in the persisted storage for the module
 
 .EXAMPLE
 Set-PSNUrl -Url "https://prod-35.westeurope.logic.azure.com:443/workflows/14adfasdrae23354432636dsfasfdsaf/"
@@ -19,6 +22,7 @@ Author: Mötz Jensen (@Splaxi)
 
 #>
 function Set-PSNUrl {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute("PSUseShouldProcessForStateChangingFunctions", "")]
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true)]
