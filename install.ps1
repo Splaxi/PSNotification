@@ -37,7 +37,7 @@ Param (
 $ModuleName = "PSNotification"
 
 # Base path to the github repository
-$BaseUrl = "https://github.com/<InsertUsernameHere>/PSNotification"
+$BaseUrl = "https://github.com/Splaxi/PSNotification"
 
 # If the module is in a subfolder of the cloned repository, specify relative path here. Empty string to skip.
 $SubFolder = "PSNotification"
