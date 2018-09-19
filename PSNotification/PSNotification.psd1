@@ -3,7 +3,7 @@
     ModuleToProcess   = 'PSNotification.psm1'
 	
     # Version number of this module.
-    ModuleVersion     = '0.5.2'
+    ModuleVersion     = '0.5.3'
 	
     # ID used to uniquely identify this module
     GUID              = '4d19341d-fefb-46c7-b5c6-ee7c527615a4'
