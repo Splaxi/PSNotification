@@ -21,7 +21,7 @@ The body/message of the notification that you want to send
 The raw Json object that you want to pass
 
 .PARAMETER AsJob
-Switch to instruct the cmdlet to start a bacground job and make sure the execution isn't blocked while contacting the HTTP endpoint
+Switch to instruct the cmdlet to start a bacground job and make sure the execution isn't blocked while contacting the HTTP endpoint.
 
 .PARAMETER JobName
 Name for the background job that will be started
